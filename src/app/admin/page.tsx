@@ -128,10 +128,6 @@ export default function AdminLoginPage() {
             </div>
           </form>
 
-          <div className="mt-8 pt-6 border-t border-[#D5DCE5] text-center text-xs text-[#A0AEC0]">
-            Akun bawaan sistem: <br />
-            <span className="font-mono text-[#718096]">admin@pltgu-cilegon.co.id</span>
-          </div>
         </NeuCard>
       </main>
 
