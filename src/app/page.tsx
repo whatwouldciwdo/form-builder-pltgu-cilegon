@@ -46,7 +46,7 @@ export default function Home() {
           </h2>
 
           <p className="mt-4 text-sm sm:text-base text-[#718096] max-w-2xl mx-auto leading-relaxed">
-            Data tersimpan aman di server internal database PLTGU Cilegon. Lengkap dengan tanda tangan digital langsung, ekspor dokumen resmi <strong>Word (.docx)</strong> &amp; <strong>PDF</strong> berkop surat, serta spreadsheet Excel.
+            Kelola seluruh formulir dinas dan operasional secara digital dengan aman, cepat, dan terorganisir di lingkungan internal unit pembangkit.
           </p>
 
           <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
@@ -73,9 +73,9 @@ export default function Home() {
               <div className="w-9 h-9 rounded-xl neu-card flex items-center justify-center text-[#00779E]">
                 <FileSpreadsheet className="w-5 h-5" />
               </div>
-              <h3 className="font-bold text-sm text-[#2D3748]">Export Word, PDF &amp; Excel</h3>
+              <h3 className="font-bold text-sm text-[#2D3748]">Ekspor Dokumen Otomatis</h3>
               <p className="text-xs text-[#718096] leading-relaxed">
-                Format tabel rapi lengkap dengan kop surat resmi PLN Indonesia Power dan verifikasi tanda tangan.
+                Ekspor rekapitulasi data respon dalam format Word, PDF, dan Excel siap pakai.
               </p>
             </div>
 
