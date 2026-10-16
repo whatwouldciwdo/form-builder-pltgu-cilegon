@@ -1,0 +1,27 @@
+services:
+  form-builder:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pltgu_cilegon_formbuilder
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=postgresql://postgres:Cilego2026.@10.8.140.69:5432/pltgu_formbuilder
+      - JWT_SECRET=pltgu-cilegon-super-secret-key-2026-safe
+      - NEXTAUTH_SECRET=pltgu-cilegon-super-secret-key-2026-safe
+      - NEXTAUTH_URL=http://localhost:3000
+    volumes:
+      - uploads_data:/app/public/uploads
+    networks:
+      - internal_network
+
+volumes:
+  uploads_data:
+    driver: local
+
+networks:
+  internal_network:
+    driver: bridge

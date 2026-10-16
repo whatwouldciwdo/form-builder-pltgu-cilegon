@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+:root {
+  --neu-base: #E8EDF2;
+  --neu-dark: #C5CDD8;
+  --neu-light: #FFFFFF;
+  --neu-text: #2D3748;
+  --neu-muted: #718096;
+  --neu-accent: #00779E; /* PLN Indonesia Power cyan/blue corporate accent */
+  --neu-accent-hover: #005F7E;
+}
+
+body {
+  background-color: var(--neu-base);
+  color: var(--neu-text);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+}
+
+/* Custom Neumorphism Utility Classes */
+.neu-card {
+  background-color: var(--neu-base);
+  border-radius: 16px;
+  box-shadow: 8px 8px 16px var(--neu-dark), -8px -8px 16px var(--neu-light);
+}
+
+.neu-card-sm {
+  background-color: var(--neu-base);
+  border-radius: 12px;
+  box-shadow: 4px 4px 8px var(--neu-dark), -4px -4px 8px var(--neu-light);
+}
+
+.neu-card-lg {
+  background-color: var(--neu-base);
+  border-radius: 24px;
+  box-shadow: 12px 12px 24px var(--neu-dark), -12px -12px 24px var(--neu-light);
+}
+
+.neu-button {
+  background-color: var(--neu-base);
+  border-radius: 9999px;
+  box-shadow: 6px 6px 12px var(--neu-dark), -6px -6px 12px var(--neu-light);
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+}
+
+.neu-button:hover {
+  box-shadow: 3px 3px 6px var(--neu-dark), -3px -3px 6px var(--neu-light);
+}
+
+.neu-button:active {
+  box-shadow: inset 4px 4px 8px var(--neu-dark), inset -4px -4px 8px var(--neu-light);
+}
+
+.neu-button-primary {
+  background: linear-gradient(135deg, #008CB9, #005F7E);
+  color: #FFFFFF;
+  border-radius: 9999px;
+  box-shadow: 5px 5px 12px rgba(0, 119, 158, 0.35), -4px -4px 10px #FFFFFF;
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+}
+
+.neu-button-primary:hover {
+  opacity: 0.95;
+  box-shadow: 2px 2px 6px rgba(0, 119, 158, 0.4);
+}
+
+.neu-button-primary:active {
+  box-shadow: inset 3px 3px 6px rgba(0, 50, 70, 0.6);
+}
+
+.neu-inset {
+  background-color: var(--neu-base);
+  border-radius: 12px;
+  box-shadow: inset 5px 5px 10px var(--neu-dark), inset -5px -5px 10px var(--neu-light);
+}
+
+.neu-inset-sm {
+  background-color: var(--neu-base);
+  border-radius: 8px;
+  box-shadow: inset 3px 3px 6px var(--neu-dark), inset -3px -3px 6px var(--neu-light);
+}
