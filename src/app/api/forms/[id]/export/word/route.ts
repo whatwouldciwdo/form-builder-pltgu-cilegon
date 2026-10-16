@@ -60,33 +60,32 @@ export async function GET(
       logoImageBuffer = fs.readFileSync(logoPath);
     }
 
-    // 2. Kop Surat sebagai Header Dokumen Resmi
+    // 2. Kop Surat sebagai Header Dokumen Resmi (3 Kolom Berimbang agar Teks Presisi Center)
     const headerTableRows: TableRow[] = [];
-    const headerCells: TableCell[] = [];
-
-    if (logoImageBuffer) {
-      headerCells.push(
-        new TableCell({
-          width: { size: 22, type: WidthType.PERCENTAGE },
-          verticalAlign: VerticalAlign.CENTER,
-          children: [
-            new Paragraph({
-              children: [
-                new ImageRun({
-                  data: logoImageBuffer,
-                  transformation: { width: 140, height: 42 },
-                } as any),
-              ],
-              alignment: AlignmentType.LEFT,
-            }),
-          ],
-        })
-      );
-    }
-
-    headerCells.push(
+    const headerCells: TableCell[] = [
+      // Kolom 1 (20%): Logo PLN Indonesia Power
       new TableCell({
-        width: { size: logoImageBuffer ? 78 : 100, type: WidthType.PERCENTAGE },
+        width: { size: 20, type: WidthType.PERCENTAGE },
+        verticalAlign: VerticalAlign.CENTER,
+        children: logoImageBuffer
+          ? [
+              new Paragraph({
+                children: [
+                  new ImageRun({
+                    data: logoImageBuffer,
+                    transformation: { width: 140, height: 42 },
+                  } as any),
+                ],
+                alignment: AlignmentType.LEFT,
+                spacing: { before: 0, after: 0 },
+              }),
+            ]
+          : [new Paragraph({ text: "" })],
+      }),
+
+      // Kolom 2 (60%): Identitas Resmi Instansi - Presisi Center Halaman
+      new TableCell({
+        width: { size: 60, type: WidthType.PERCENTAGE },
         verticalAlign: VerticalAlign.CENTER,
         children: [
           new Paragraph({
@@ -99,6 +98,7 @@ export async function GET(
               }),
             ],
             alignment: AlignmentType.CENTER,
+            spacing: { before: 0, after: 20 },
           }),
           new Paragraph({
             children: [
@@ -110,6 +110,7 @@ export async function GET(
               }),
             ],
             alignment: AlignmentType.CENTER,
+            spacing: { before: 0, after: 20 },
           }),
           new Paragraph({
             children: [
@@ -120,6 +121,7 @@ export async function GET(
               }),
             ],
             alignment: AlignmentType.CENTER,
+            spacing: { before: 0, after: 20 },
           }),
           new Paragraph({
             children: [
@@ -131,11 +133,18 @@ export async function GET(
               }),
             ],
             alignment: AlignmentType.CENTER,
-            spacing: { after: 60 },
+            spacing: { before: 0, after: 40 },
           }),
         ],
-      })
-    );
+      }),
+
+      // Kolom 3 (20%): Spacer Penyeimbang Simetris agar Kolom Tengah Sempurna di Titik Tengah Kertas
+      new TableCell({
+        width: { size: 20, type: WidthType.PERCENTAGE },
+        verticalAlign: VerticalAlign.CENTER,
+        children: [new Paragraph({ text: "" })],
+      }),
+    ];
 
     headerTableRows.push(new TableRow({ children: headerCells }));
 
@@ -308,17 +317,18 @@ export async function GET(
 
     const tableRows: TableRow[] = [];
 
-    // Header Tabel Respon (Latar Hitam, Teks Putih)
+    // Header Tabel Respon (Kembalikan ke Biru PLN IP: 00779E, Teks Putih Bold, Presisi Center)
     const headerRowCells: TableCell[] = [
       new TableCell({
         children: [
           new Paragraph({
             children: [new TextRun({ text: "No", bold: true, size: 16, color: "FFFFFF" })],
             alignment: AlignmentType.CENTER,
+            spacing: { before: 80, after: 80 },
           }),
         ],
         width: { size: noWidth, type: WidthType.PERCENTAGE },
-        shading: { fill: "000000" },
+        shading: { fill: "00779E" },
         verticalAlign: VerticalAlign.CENTER,
       }),
       new TableCell({
@@ -326,10 +336,11 @@ export async function GET(
           new Paragraph({
             children: [new TextRun({ text: "Waktu Pengisian", bold: true, size: 16, color: "FFFFFF" })],
             alignment: AlignmentType.CENTER,
+            spacing: { before: 80, after: 80 },
           }),
         ],
         width: { size: timeWidth, type: WidthType.PERCENTAGE },
-        shading: { fill: "000000" },
+        shading: { fill: "00779E" },
         verticalAlign: VerticalAlign.CENTER,
       }),
     ];
@@ -341,10 +352,11 @@ export async function GET(
             new Paragraph({
               children: [new TextRun({ text: f.label, bold: true, size: 16, color: "FFFFFF" })],
               alignment: AlignmentType.CENTER,
+              spacing: { before: 80, after: 80 },
             }),
           ],
           width: { size: fieldColWidth, type: WidthType.PERCENTAGE },
-          shading: { fill: "000000" },
+          shading: { fill: "00779E" },
           verticalAlign: VerticalAlign.CENTER,
         })
       );
