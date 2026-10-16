@@ -83,9 +83,9 @@ export default function Home() {
               <div className="w-9 h-9 rounded-xl neu-card flex items-center justify-center text-[#00779E]">
                 <ShieldCheck className="w-5 h-5" />
               </div>
-              <h3 className="font-bold text-sm text-[#2D3748]">100% Server Lokal</h3>
+              <h3 className="font-bold text-sm text-[#2D3748]">Keamanan &amp; Privasi Data</h3>
               <p className="text-xs text-[#718096] leading-relaxed">
-                Terkoneksi langsung ke PostgreSQL internal (10.8.140.69). Siap jalan di Docker Ubuntu.
+                Data tersimpan aman di jaringan internal privat PLTGU Cilegon tanpa ketergantungan pihak ketiga.
               </p>
             </div>
           </div>
